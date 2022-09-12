@@ -4,10 +4,10 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Rectangle> myRectangles = new ArrayList<>();
         Rectangle r1 = new Rectangle();
-        output(r1.toString());
+        output(r1);
 
         myRectangles.add(r1);
-        output(myRectangles.get(0).toString());
+        output(myRectangles.get(0));
 
         Rectangle r2 = new Rectangle(10,12,25, 4);
 
@@ -31,13 +31,13 @@ public class Main {
 
     }
 
-    static void output(String output){
-        System.out.println(output);
+    static void output(Rectangle rectangle){
+        System.out.println(rectangle);
     }
 
     static void listRectangles(ArrayList<Rectangle> myRectangles){
         for(Rectangle rectangle : myRectangles){
-            output(rectangle.toString());
+            output(rectangle);
         }
         System.out.println("--------------------------");
     }
