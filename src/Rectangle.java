@@ -1,8 +1,8 @@
 public class Rectangle {
-    double x;
-    double y;
-    double width;
-    double height;
+    private double x;
+    private double y;
+    private double width;
+    private double height;
 
     public Rectangle() {
         this.x = 0;
@@ -42,8 +42,34 @@ public class Rectangle {
         this.width = width;
     }
 
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    public boolean checkCollision(Rectangle other) {
+        // I think I got this wrong...
+        return (!(x + width < other.getX())
+                && !(x > other.getX() + other.getWidth()))
+
+                ||
+                (!(y - height > other.getY())
+                        && !(y < other.getY() - getHeight()));
     }
 
     public String toString(){

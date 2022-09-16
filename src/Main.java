@@ -1,33 +1,24 @@
+// new branch, adds checkCollision method in Rectangle class
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
         ArrayList<Rectangle> myRectangles = new ArrayList<>();
-        Rectangle r1 = new Rectangle();
-        output(r1);
+        Rectangle r1 = new Rectangle(21,12,10,10);
+        Rectangle r2 = new Rectangle(10,12,10, 10);
+        Rectangle r3 = new Rectangle(34, 62, 10, 10);
+
 
         myRectangles.add(r1);
-        output(myRectangles.get(0));
-
-        Rectangle r2 = new Rectangle(10,12,25, 4);
-
         myRectangles.add(r2);
+        myRectangles.add(r3);
+
 
         listRectangles(myRectangles);
         System.out.println(r2.calculateArea());
         System.out.println(r2.calculatePerimeter());
 
-        Rectangle r3 = new Rectangle(34, 62, 64, 23.87);
-        myRectangles.add(r3);
-
-        listRectangles(myRectangles);
-
-        myRectangles.get(2).setHeight(43.9876);
-
-        listRectangles(myRectangles);
-
-        myRectangles.get(1).setXY(234.5, 67.32);
-        listRectangles(myRectangles);
+        System.out.println(r1.checkCollision(r2));
 
     }
 
