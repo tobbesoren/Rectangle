@@ -63,15 +63,30 @@ public class Rectangle {
     }
 
     public boolean checkCollision(Rectangle other) {
-        // I think I got this wrong...
-        return (!(x + width < other.getX())
-                && !(x > other.getX() + other.getWidth()))
+       // I'm using these variables to make the logic part easier to read
+        double thisLeftSide = this.x;
+        double thisRightSide = this.x + this.width;
+        double thisTopSide = this.y;
+        double thisBottomSide = this.y - this.height;
 
-                ||
-                (!(y - height > other.getY())
-                        && !(y < other.getY() - getHeight()));
+        double otherLeftSide = other.getX();
+        double otherRightSide = other.getX() + other.getWidth();
+        double otherTopSide = other.getY();
+        double otherBottomSide = other.getY() - other.getHeight();
+
+        // Checking if any rectangle is to the right of the other; if so, they don't overlap and false is returned.
+        if(thisLeftSide > otherRightSide || otherLeftSide > thisRightSide) {
+            return false;
+
+        // Checking if any rectangle is below the other; if so, they don't overlap and false is returned .
+        } else if(thisTopSide < otherBottomSide || otherTopSide < thisBottomSide) {
+            return false;
+
+        // If none of the other conditions where fulfilled, then the rectangles overlap and true is returned.
+        } else {
+            return true;
+        }
     }
-
     public String toString(){
         return "x: " + x + "," +
                 " y: " + y + "," +
